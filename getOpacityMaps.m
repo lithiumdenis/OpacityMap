@@ -1,22 +1,13 @@
 clc; clear;
 
 %Получим все изображения из папки images, находящейся в одной директории со
-%скриптом
+%скриптом. Там же необходимо создать пустую папку imOutputs
 addpath('images');
 list = ls('images/*.*g');
 %Число изображений
 lsize = size(list);
-lsize = lsize(1);
 
-%Сохраним все изображения в единый cell
-imageCell = cell(1, lsize);
-for i = 1:lsize
-    imageCell{i} = imread(strtrim(list(i,:)));
+for i = 1:lsize(1)
+    imCurr = getOppacityMapFromImage(imread(strtrim(list(i,:))));
+    imwrite(imCurr, strcat('imOutputs/', getFilenameWithoutExt(strtrim(list(i,:))), '.png'));
 end
-
-%Получим oppacity maps
-imageOppacityCell = cell(1, lsize);
-for i = 1:lsize
-    imageOppacityCell{i} = getOppacityMapFromImage(imageCell{i});
-end
-
