@@ -1,6 +1,6 @@
 function [ imO ] = getOppacityMapFromImage(imIn)
-%getOppacityMapFromImage получает карту размытия imO из исходного
-%изображения imIn.
+%getOppacityMapFromImage РїРѕР»СѓС‡Р°РµС‚ РєР°СЂС‚Сѓ СЂР°Р·РјС‹С‚РёСЏ imO РёР· РёСЃС…РѕРґРЅРѕРіРѕ
+%РёР·РѕР±СЂР°Р¶РµРЅРёСЏ imIn.
 sizesOfImIn = size(imIn);
 imO = uint8(zeros(sizesOfImIn));
 for i = 1:sizesOfImIn(1)
