@@ -1,1 +1,13 @@
-clc; clear;%Получим все изображения из папки images, находящейся в одной директории со%скриптом. Там же необходимо создать пустую папку imOutputsaddpath('images');list = ls('images/*.*g');%Число изображенийlsize = size(list);for i = 1:lsize(1)    imCurr = getOppacityMapFromImage(imread(strtrim(list(i,:))));    imwrite(imCurr, strcat('imOutputs/', getFilenameWithoutExt(strtrim(list(i,:))), '.png'));end
+clc; clear;
+
+%РџРѕР»СѓС‡РёРј РІСЃРµ РёР·РѕР±СЂР°Р¶РµРЅРёСЏ РёР· РїР°РїРєРё images, РЅР°С…РѕРґСЏС‰РµР№СЃСЏ РІ РѕРґРЅРѕР№ РґРёСЂРµРєС‚РѕСЂРёРё СЃРѕ
+%СЃРєСЂРёРїС‚РѕРј. РўР°Рј Р¶Рµ РЅРµРѕР±С…РѕРґРёРјРѕ СЃРѕР·РґР°С‚СЊ РїСѓСЃС‚СѓСЋ РїР°РїРєСѓ imOutputs
+addpath('images');
+list = ls('images/*.*g');
+%Р§РёСЃР»Рѕ РёР·РѕР±СЂР°Р¶РµРЅРёР№
+lsize = size(list);
+
+for i = 1:lsize(1)
+    imCurr = getOppacityMapFromImage(imread(strtrim(list(i,:))));
+    imwrite(imCurr, strcat('imOutputs/', getFilenameWithoutExt(strtrim(list(i,:))), '.png'));
+end
